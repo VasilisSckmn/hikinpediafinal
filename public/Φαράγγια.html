@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Φαράγγια</title>
+    <style>
+      body {
+        background-image: url('IMG_20231223_124941.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+            }
+      
+      </style>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="MountainsWebsite.css" />
+</head>
+<body>
+  <h1><a href="Φαράγγια.html">Φαράγγια</a></h1>
+  <h2>Μία μηχανή αναζήτησης για τις εμπειρίες πεζοπόρων στα ελληνικά βουνά! <br>
+    </h2>    
+    <div class="searchbox">
+      <div class="search">
+          <p class="area"><strong>Πληκτρολογήστε το Φαράγγι ή τον Νομό:</strong>
+              <input type="text" id="searchInput" placeholder="">
+              <button onclick="search()">Αναζήτηση</button>
+          </p>
+      </div>
+      <div id="searchResults"></div>
+      <div id="backToHomePage" style="display: none;">
+          <a href="Φαράγγια.html">Νέα Αναζήτηση</a>
+      </div>
+  </div>
+  <br>
+<div class="scrollable-table">
+<table class="nat">
+  <thead>
+      <tr>
+          <th></th>
+          <th>Όνομα Φαραγγιού (αλφαβητική σειρά)</th>
+          <th>Νομός</th>
+          <th>Βουνό</th>
+      </tr>
+  </thead>
+  <tbody id="table-body-canyons">
+  </table>
+</div>
+  <p class="return"><a href="index.html"><em><span style="background-color: green; padding: 5px; border-radius: 50%;"><i class="fas fa-arrow-left fa-lg" style="color: white;"></i></span></a></p>
+    <script src="Φαράγγια.js"></script>
+    <script src="AlphabeticalOrder.js"></script>
+    
+    </body>
+</html>

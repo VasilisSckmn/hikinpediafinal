@@ -1,0 +1,823 @@
+h1 a {
+  text-align: center;
+  text-decoration: none;
+  color: #ff9900;
+  text-shadow: 
+      -1px -1px 0 #000,  
+       1px -1px 0 #000,
+      -1px  1px 0 #000,
+       1px  1px 0 #000;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 30px;
+    }
+  
+    h2 {
+      text-align: center;
+      font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
+      font-size: 18px;
+      padding: 5px;
+      -webkit-text-stroke: 1px green; /* For compatibility with some browsers */
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+    }
+    
+    
+    .belowH2 {
+       
+      margin-left: 40%;
+      margin-right: 40%;
+      text-align: center;
+      font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
+      font-size: 14px;
+      padding: 10px 14px;
+      -webkit-text-stroke: 0.5px #126c02; /* subtle green stroke */
+      color: #ffffff; /* pure white text */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* strong dark shadow */
+      background-color: rgba(0, 0, 0, 0.45); /* semi-transparent dark background */
+      background-position: 0 20px; /* Move the background down */
+      background-size: cover; /* Make sure it covers the element */
+      border-radius: 12px;
+      display: inline-block;
+      padding: 5px;
+    
+  }
+  
+  .list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      gap: 10rem; 
+      color: white;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .area {
+  text-align: center;
+  font-size: 17px;
+  text-decoration-line: none;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  .navigation {
+    text-align: center; 
+    width: 100%; 
+  }
+  
+  .main-navigation {
+    display: inline-block;
+  }
+  
+  nav ul li a {
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #006600;
+  }
+  
+  nav ul li a:hover {
+    background-color: #807979;
+  }
+  
+  .navigation {
+  align-items: center;
+  }
+  
+  table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    unicode-bidi: isolate;
+  }
+  
+  .nat {
+    border-spacing: 5px;
+    border: 1px solid black;
+    margin: auto;
+    background-color: #f4f6f6;
+  }
+  
+  .nat th,
+  .nat td {
+    text-align: center;
+  }
+
+  #cookieConsent {
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    margin-left: 40%;
+    margin-right: 40%;
+    background-color: #576a78;
+    color: #222;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: sans-serif;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 280px;
+    flex-wrap: wrap;
+  }
+  
+  #cookieConsent button {
+    padding: 4px 8px;
+    font-size: 11px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #0078d4;
+    color: #fff;
+  }
+  
+  #cookieConsent button:hover {
+    background: #005fa3;
+  }
+  
+  #declineCookies {
+    background: #ccc;
+    color: #222;
+  }
+  
+  #declineCookies:hover {
+    background: #bbb;
+  }
+  
+  
+  .scrollable-table {
+    max-height: 450px; /* Adjust the height as needed */
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds max height */
+  }
+  
+  .scrollable-table table {
+    width: 70%;
+    box-sizing: border-box;
+  }
+  
+  .return {
+    text-align: center;
+    font-size: 23px;
+  }
+  .geografika {
+    height: 50vh;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  
+    .Ipeiros, .Thessalia, .Thraki, .Kriti, .Macedonia, .AigaioIonio, .Peloponnisos, .Sterea {
+    font-size: 1.8rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #a31aff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ensure the search results container is displayed correctly */
+  #searchResults {
+    font-size: 18px;
+    padding: 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 100%;
+    margin: 0;
+  }
+  
+  /* Unordered list for search results */
+  #resultsList {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 20px; /* Space for bullets */
+    margin: 0; /* Remove margin */
+  }
+  
+  #searchResults .result {
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    margin-bottom: 10px; /* Space between each result */
+    box-sizing: border-box; /* Prevent padding from affecting width */
+  }
+  
+  #searchResults * {
+    list-style-type: none; /* Remove any unwanted list styles in inner elements */
+  }
+  
+  /* Styling for the search box */
+  .searchbox {
+    background-color: #f0f0f0;
+    font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
+    padding: 0px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    width: 430px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .search {
+    display: inline-block;
+  }
+  
+  #searchInput {
+    padding: 10px;
+    width: 80%;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #searchResults p {
+    text-align: left;
+  }
+  
+  
+  .table1 {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #submissionForm {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  
+  .buttonContact {
+    padding: 10px 20px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mountains {
+    width: 32%; 
+    margin: 0 auto;
+    background-color: white; 
+    padding: 25px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .contact {
+    background-color: #a6a6a6;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    text-align: center;
+    position: relative; 
+    margin: 0 auto; 
+  }
+  
+  .message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  textarea {
+    width: 90%; 
+    box-sizing: border-box;
+  }
+
+  .choice {
+    background: none; /* Removes any white background */
+  }
+  
+
+  .choice ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .choice li {
+    margin: 10px 0;
+  }
+  
+  .choice a {
+    text-align: center;
+    font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 14px;
+    -webkit-text-stroke: 0.5px #126c02; /* subtle green stroke */
+    color: #ffffff; /* pure white text */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* strong dark shadow */
+    background-color: rgba(0, 0, 0, 0.45); /* semi-transparent dark background */
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none; /* optional: remove underline */
+  }
+  
+  
+  .final {
+    width: 500px; /* Adjust the width as needed */
+    background-color:  #00e66b; /* Choose your desired background color */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    position: fixed;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    max-height: calc(60% - 20px); /* Subtract the height of the scrollbar */
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds max height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .final ul {
+    align-self: center; /* Center the <ul> vertically */
+  }
+  
+  .final li a {
+    text-decoration: none; /* Remove underline */
+  }
+  
+  #visitCount {
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  .MountainPageBackground {
+    background-image: url('NONE.jpg'); /* Replace with your image path */
+    background-color: #87CEEB;
+    background-size: cover; /* Makes the image cover the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100vh; /* Full viewport height */
+  }
+  
+  #backToHomePage {
+    text-align: center;
+  }
+  
+  #cookieConsent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  #cookieConsent button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  #cookieConsent button#declineCookies {
+    background-color: #f44336; /* Red color for decline button */
+  }
+  
+  footer {
+    position: relevant;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 37px 0;
+    width: 35%; /* Adjust the width as needed */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the footer horizontally */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+  }
+  
+  .footer-form-container {
+    width: 60%; /* Ensure the form container uses full width of the footer */
+    text-align: center;
+    font-size: 14px;
+    font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
+    font-weight: bold;
+  }
+  
+  .footer-form-container form {
+    background-color: #f8f9fa;
+    font-size: 12px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; /* Center the footer horizontally */
+  }
+  
+  .footer-form-container label {
+    margin-top: 0px;
+    margin: 0 auto; /* Center the footer horizontally */
+  }
+  
+  .footer-form-container input {
+    margin: 0 auto; /* Center the footer horizontally */
+    width: 80%;
+    padding: 1px; /* Adjusted padding */
+    margin-top: 5px; /* Adjusted margin-top */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .footer-form-container button {
+    margin: 0 auto; /* Center the footer horizontally */
+    margin-top: 5px;
+    padding: 5px; /* Adjusted padding */
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid black;
+    border-radius: 0px;
+    cursor: pointer;
+  }
+  
+  .footer-form-container button:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .havegone {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 0; /* Full viewport height */
+      width: 100%; /* Full viewport width */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .coordinates {
+    display: flex;
+    flex-direction: column; /* Ensures text stacks properly */
+    align-items: center; /* Centers text horizontally */
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 12px; /* Default font size, change as needed */
+  }
+  
+  
+  
+  .searchResultLink {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .youtubeIcon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+  
+  .mapsIcon {
+    width: 20px; /* Set the desired width */
+    height: 20px; /* Set the desired height */
+    margin-left: 10px; /* Add spacing if needed */
+    cursor: pointer; /* Make it look clickable */
+    vertical-align: middle;
+}
+
+  
+  .pressed {
+    color: purple; /* Change to any color you'd like */
+  }
+  
+  
+
+  /*MOBILE PHONE ADJUSTED*/
+
+  /* General mobile adjustments */
+@media screen and (max-width: 768px) {
+  h1 a {
+    font-size: 24px; /* Reduced size for better fit */
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 32px; /* Smaller font size for mobile */
+  }
+
+  h2 {
+    font-size: 16px; /* Adjusted for readability on smaller screens */
+    padding: 3px;
+  }
+
+  .belowH2 {
+    font-size: 12px;
+    padding: 3px;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .list {
+    flex-direction: column; /* Stack items vertically */
+    gap: 1rem; /* Reduced gap */
+    font-size: 16px; /* Smaller font */
+  }
+
+  .area {
+    font-size: 15px;
+  }
+
+  nav ul li a {
+    padding: 8px 10px; /* Reduced padding */
+    font-size: 14px; /* Smaller font */
+  }
+
+  .scrollable-table {
+    max-height: 300px; /* Reduced max height for smaller screens */
+  }
+
+  .scrollable-table table {
+    width: 100%; /* Full-width for small screens */
+  }
+
+  .return {
+    font-size: 18px; /* Adjust font size */
+  }
+
+  .geografika {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr; /* Reduced columns for mobile */
+    grid-template-rows: auto; /* Adjust rows dynamically */
+  }
+
+  .Ipeiros, .Thessalia, .Thraki, .Kriti, .Macedonia, .AigaioIonio, .Peloponnisos, .Sterea {
+    font-size: 1.2rem; /* Smaller font size */
+    padding: 10px; /* Add padding for touch-friendly design */
+  }
+
+  .searchbox {
+    width: 90%; /* Adjust to fit within mobile screens */
+    padding: 5px;
+  }
+
+  #searchInput {
+    width: 70%; /* Adjust width for smaller screens */
+  }
+
+  button {
+    padding: 8px 15px; /* Reduce padding */
+  }
+
+  .mountains {
+    width: 100%; /* Use full width on smaller screens */
+    padding: 15px;
+  }
+
+  .contact {
+    max-width: 90%; /* Ensure it fits within screen */
+    padding: 15px;
+  }
+
+  th, td {
+    font-size: 12px; /* Adjust table font size */
+    padding: 5px; /* Reduce padding for small screens */
+  }
+
+  #submissionForm {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .buttonContact {
+    padding: 8px 15px; /* Reduce padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  #cookieConsent {
+    font-size: 12px;
+    padding: 3px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #576a78;
+  }
+
+ 
+
+}
+
+@media screen and (max-width: 768px) {
+  textarea {
+    width: 100%; /* Use full width on mobile */
+    margin: 0 auto; /* Center the textarea */
+  }
+
+  .final {
+    width: 90%; /* Adjust to fit smaller screens */
+    font-size: 16px; /* Reduced font size for readability */
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+  .final ul {
+    margin: 10px 0; /* Add margin for better spacing */
+  }
+
+  .final li a {
+    font-size: 14px; /* Smaller font size */
+  }
+
+  #visitCount {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .MountainPageBackground {
+    height: auto; /* Adjust height for smaller screens */
+  }
+
+  #backToHomePage {
+    font-size: 14px; /* Smaller font size */
+  }
+
+  #cookieConsent {
+    flex-direction: column; /* Stack content vertically */
+    padding: 10px; /* Adjust padding */
+  }
+  #cookieConsent button {
+    padding: 8px 12px; /* Reduce button size */
+    margin-top: 10px; /* Add margin between buttons */
+  }
+
+  footer {
+    width: 90%; /* Ensure footer fits mobile screens */
+    padding: 20px; /* Adjust padding */
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  .footer-form-container {
+    width: 100%; /* Full width for mobile */
+    font-size: 12px; /* Reduced font size */
+    margin: 0 auto; /* Center the form */
+  }
+
+  .footer-form-container input {
+    width: 90%; /* Adjust width for better fit */
+    padding: 8px; /* Add padding */
+  }
+
+  .footer-form-container button {
+    padding: 8px 12px; /* Adjust button size */
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .havegone {
+    font-size: 16px; /* Adjust font size for mobile */
+    padding: 10px; /* Add padding */
+  }
+
+  .youtubeIcon, .mapsIcon {
+    width: 16px; /* Reduce size for better fit */
+    height: 16px;
+    margin-left: 5px; /* Adjust spacing */
+  }
+
+  .pressed {
+    font-size: 14px; /* Adjust size */
+  }
+}
+
+/* Default styles for the navigation */
+.main-navigation {
+  display: block;
+}
+
+.main-navigation ul {
+  border: none;
+  outline: none;
+}
+
+.main-navigation ul li {
+  border: none;
+  outline: none;
+}
+
+.main-navigation ul li a {
+  border: none;
+  outline: none;
+}
+
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  /* Hide menu by default on mobile */
+  .main-navigation ul {
+    display: none;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+  }
+
+  /* Show menu when toggled */
+  .main-navigation ul.show {
+    display: block;
+  }
+
+  /* Style for menu items */
+  .main-navigation > ul > li {
+    text-align: center;
+    background-color: #b4b3b3;
+    padding: none;
+  }
+
+  .main-navigation > ul > li > a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Hamburger menu styles (only on mobile) */
+  .menu-toggle {
+    display: block;
+    background-color: #006600;
+    padding: 0px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    border: 2px solid #D3D3D3; /* Light grey border */
+    border-radius: 12px; /* Rounded corners */
+    outline: none; /* Remove any outline */
+  }
+  
+  /* Add a little space between the menu items */
+  .main-navigation > ul > li {
+    border-bottom: none;
+  }
+}
+
+/* Hide the hamburger button on desktop (screens wider than 768px) */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/* Optional: To style the active (hover) state of a menu item */
+.main-navigation ul li a:hover {
+  background-color: #555;
+}
+
+@media (max-width: 480px) {
+  #cookieConsent {
+    bottom: 10px;
+    left: 10px;
+    max-width: 90%;
+    font-size: 11px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #cookieConsent button {
+    margin-top: 4px;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HikinPedia Greece - Βουνά της Ελλάδας</title>
+    <style>
+      body {
+        background-image: url('IMG_20200823_095102_1.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+            }
+
+#datetime {
+    position: absolute;
+    top: 5px;   /* Adjust this value to move it higher */
+    left: 5px;  /* Adjust this value to move it more to the left */
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    color: #333;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    transition: none; /* Prevent any transitions that could cause delay */
+}
+
+  
+
+      </style>
+      <link rel="stylesheet" href="MountainsWebsite.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+  <br>
+    <h1><a href="index.html">(COMING VERY SOON...) <br> HikinPedia Greece <br> Βουνά της Ελλάδας</a></h1>
+    <h2>Μία μηχανή αναζήτησης για τις εμπειρίες πεζοπόρων σε ελληνικά βουνά και φαράγγια!
+    </h2>
+
+    <br>
+
+    <div id="datetime"></div>
+
+    <script>
+      function updateDateTime() {
+          const optionsTime = { 
+              timeZone: 'Europe/Athens', 
+              hour12: false, 
+              hour: '2-digit', 
+              minute: '2-digit' 
+          };
+          const optionsDate = { 
+              timeZone: 'Europe/Athens', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+          };
+
+          const now = new Date();
+          const timeString = new Intl.DateTimeFormat('el-GR', optionsTime).format(now);
+          const dateString = new Intl.DateTimeFormat('el-GR', optionsDate).format(now);
+
+          const dateTimeString = `${timeString}, ${dateString}`;
+          document.getElementById('datetime').textContent = dateTimeString;
+      }
+
+      updateDateTime(); // Initial call to display date immediately
+      setInterval(updateDateTime, 60000); // Update every minute
+  </script>
+
+    <div class="belowH2" >
+      
+      <p>Η πιο ολοκληρωμένη λίστα για βουνά και φαράγγια στην Ελλάδα!</p>
+    <p>Διαβάστε εξορμήσεις, θαυμάστε την ομορφιά της φύσης και <br> βρείτε οδηγίες για τη δική σας πεζοπορία!</p>  
+  
+  </div>
+  <br>
+  <br>
+  
+    <div class="searchbox">
+      <div class="search">
+        <p class="area"><strong>Πληκτρολογήστε το Βουνό ή τον Νομό</strong>
+          <input type="text" id="searchInput" placeholder="" onkeydown="handleEnter(event)">
+          <button onclick="search()">Αναζήτηση</button>
+        </p>
+      </div>
+      <div id="searchResults">
+        <ul id="resultsList"></ul> <!-- This will contain the search results -->
+      </div>
+      <div id="backToHomePage" style="display: none;">
+        <a href="index.html">Νέα Αναζήτηση</a>
+      </div>
+    </div>
+    
+    
+    
+
+  <br>
+  <br>
+ 
+  <div class="navigation section no-padding bg-dark">
+    <nav id="site-navigation" class="navigation-inner section-inner clear" role="navigation">
+      <div class="main-navigation">
+        <!-- Mobile toggle button -->
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+  
+        <!-- Menu List -->
+        <ul id="primary-menu" class="menu">
+          <li id="menu-item-3668" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3668">
+            <a href="Υψόμετρα.html">Υψόμετρα</a>
+          </li>
+
+          <li id="menu-item-3668" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3668">
+            <a href="Φαράγγια.html">Φαράγγια</a>
+          </li>
+
+          <li id="menu-item-194" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-194">
+            <a href="Γεωγραφικά_Διαμερίσματα.html">Γεωγραφικά Διαμερίσματα</a>
+          </li>
+
+ <li id="menu-item-194" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-194">
+  <a href="Cooltoknow.html">Cool to Know</a>
+          </li>
+
+          
+
+            
+          <li id="menu-item-196" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-196">
+            <a href="Originstory.html">Origin Story</a>
+
+            <li id="menu-item-196" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-196">
+              <a href="Ημερολόγιο.html">Ημερολόγιο</a>
+
+          </li>
+          <li id="menu-item-196" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-196">
+            <a href="Επικοινωνία.html">Επικοινωνία</a>
+          </li>
+
+        </li>
+        <li id="menu-item-196" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-196">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7VHMbuPTOmWXQby97VVFgIiHyoHtjkbZ9kxuNwDcGslCikw/viewform?usp=header">Αξιολόγηση</a>
+        </li>
+
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <footer>
+    <form id="submission-form" class="footer-form-container">
+      <p style="background-color: #f9f9f9; padding: 5px; border-radius: 10px;">
+        Στείλε μας το link από μία νέα πεζοπορία για να προστεθεί στη μηχανή αναζήτησης της HikinPedia!
+      </p>  
+      <input type="email" id="email" placeholder="Γράψε το email σου και απάντησε στο μήνυμα επιβεβαίωσης" required>
+      <input type="url" id="link" placeholder="Επικόλλησε το link της πεζοπορίας!" required>
+      <button type="submit">Αποστολή</button>
+    </form>
+    <p id="response-message"></p>
+  </footer>
+  
+  <div id="cookieConsent">
+    <span>Αυτός ο ιστότοπος χρησιμοποιεί cookies για τη μέτρηση της επισκεψιμότητας.</span>
+    <button id="acceptCookies">Συμφωνώ</button>
+    <button id="declineCookies">Διαφωνώ</button>
+  </div>
+
+
+
+<script src="AlphabeticalOrder.js"></script>
+<script src="MountainsWebsite.js"></script>
+<script src="visitcount.js"></script>
+
+<!-- Include Firebase SDKs -->
+<script type="module">
+  // Firebase imports
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  // ✅ Firebase config (use your real values here)
+  const firebaseConfig = {
+    apiKey: "AIzaSyBaupmRVgOUNzgo_lMY1bkPqewMSVFpScA",
+    authDomain: "hikinpedia.firebaseapp.com", // Make sure this is correct
+    projectId: "your-project-id",
+    appId: "your-app-id"
+  };
+
+  // ✅ Azure domain used for redirection (must be allowlisted in Firebase)
+  const redirectUrl = "https://hikinpedia-hpeybzhzazc5hmct.germanywestcentral-01.azurewebsites.net";
+
+  // Firebase initialization
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // Form logic
+  document.getElementById("submission-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    let link = document.getElementById("link").value.trim();
+    const responseMessage = document.getElementById("response-message");
+
+    if (!/^https?:\/\//i.test(link)) {
+      link = "https://" + link;
+    }
+
+    try {
+      const actionCodeSettings = {
+        url: redirectUrl, // ✅ Use the fixed URL here, not window.location.href
+        handleCodeInApp: true
+      };
+
+      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
+      window.localStorage.setItem("emailForSignIn", email);
+
+      // Save link to Firestore
+      const submissionRef = collection(db, "submissions");
+      await addDoc(submissionRef, {
+        email: email,
+        link: link,
+        submitted_at: new Date(),
+      });
+
+      responseMessage.textContent = "✅ Magic link sent! Check your inbox.";
+      responseMessage.style.color = "green";
+    } catch (error) {
+      responseMessage.textContent = `❌ Error: ${error.message}`;
+      responseMessage.style.color = "red";
+    }
+  });
+
+  // Magic link sign-in handler
+  if (isSignInWithEmailLink(auth, window.location.href)) {
+    let email = window.localStorage.getItem("emailForSignIn");
+
+    if (!email) {
+      email = prompt("Please enter your email to complete sign-in:");
+    }
+
+    signInWithEmailLink(auth, email, window.location.href)
+      .then(() => {
+        window.localStorage.removeItem("emailForSignIn");
+        console.log("✅ User signed in via magic link.");
+      })
+      .catch((error) => {
+        console.error("❌ Sign-in error:", error);
+      });
+  }
+</script>
+
+<script>
+  function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (!getCookie('cookiesAccepted') && !getCookie('cookiesDeclined')) {
+      document.getElementById('cookieConsent').style.display = 'flex';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', function () {
+      setCookie('cookiesAccepted', 'true', 365);
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+
+    document.getElementById('declineCookies').addEventListener('click', function () {
+      setCookie('cookiesDeclined', 'true', 365);
+      document.getElementById('cookieConsent').style.display = 'none';
+    });
+  });
+</script>
+
+
+</body>
+</html>

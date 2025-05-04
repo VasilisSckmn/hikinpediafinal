@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Υψόμετρα</title>
+    <style>
+      body {
+        background-image: url('IMG_20200829_141026.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+            }
+      
+      </style>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link rel="stylesheet" href="MountainsWebsite.css" />
+</head>
+<body>
+  <h1><a href="Υψόμετρα.html">Υψόμετρα</a></h1>
+  <h2>Μία μηχανή αναζήτησης για τις εμπειρίες πεζοπόρων στα ελληνικά βουνά! <br>
+    </h2>  
+    
+    <div class="searchbox">
+      <div class="search">
+          <p class="area"><strong>Πληκτρολογήστε το Βουνό:</strong>
+              <input type="text" id="searchInput" placeholder="">
+              <button onclick="search2()">Αναζήτηση</button>
+          </p>
+      </div>
+      <div id="searchResults"></div>
+      <div id="backToHomePage" style="display: none;">
+          <a href="Υψόμετρα.html">Νέα Αναζήτηση</a>
+      </div>
+  </div>
+  <br>
+
+<div class="scrollable-table">
+<table class="nat">
+  <thead>
+      <tr>
+          <th></th>
+          <th>Όνομα Βουνού - Νομός</th>
+          <th>Κορυφή</th>
+          <th>Υψόμετρο (m)</th>
+      </tr>
+  </thead>
+  <tbody id="table-body">
+  </table>
+</div>
+  <p class="return"><a href="index.html"><em><span style="background-color: green; padding: 5px; border-radius: 50%;"><i class="fas fa-arrow-left fa-lg" style="color: white;"></i></span></a></p>
+    <script src="MountainsWebsite.js"></script>
+    <script src="Search2.js"></script>
+    <script src="AlphabeticalOrder.js"></script>
+
+
+    </body>
+</html>

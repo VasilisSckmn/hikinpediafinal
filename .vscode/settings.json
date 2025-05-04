@@ -1,0 +1,9 @@
+{
+    "livePreview.defaultPreviewPath": "/public/ΝεραιδοβουνιΕυρυτανιας.html",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/77b93ab3-1cab-4df6-9e2f-b7862f77e26d/resourceGroups/HikinPedia/providers/Microsoft.Web/sites/hikinpedia",
+    "appService.deploySubpath": "."
+}
