@@ -32,6 +32,17 @@
       <link rel="stylesheet" href="MountainsWebsite.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CY84R2MD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3CY84R2MD7');
+</script>
+
+
 </head>
 <body>
   <br>
@@ -149,18 +160,9 @@
     </nav>
   </div>
 
+<br>
 
-  <footer>
-    <form id="submission-form" class="footer-form-container">
-      <p style="background-color: #f9f9f9; padding: 5px; border-radius: 10px;">
-        Στείλε μας το link από μία νέα πεζοπορία για να προστεθεί στη μηχανή αναζήτησης της HikinPedia!
-      </p>
-      <input type="email" id="email" placeholder="Γράψε το email σου και απάντησε στο μήνυμα επιβεβαίωσης" required>
-      <input type="url" id="link" placeholder="Επικόλλησε το link της πεζοπορίας!" required>
-      <button type="submit">Αποστολή</button>
-    </form>
-    <p id="response-message"></p>
-  </footer>
+<br><br>
   
   <div id="cookieConsent">
     <span>Αυτός ο ιστότοπος χρησιμοποιεί cookies για τη μέτρηση της επισκεψιμότητας.</span>
@@ -174,85 +176,8 @@
 <script src="MountainsWebsite.js"></script>
 <script src="visitcount.js"></script>
 
-<!-- Include Firebase SDKs -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
-
-  // ✅ Firebase config - double-check your actual values!
-  const firebaseConfig = {
-    apiKey: "AIzaSyBaupmRVgOUNzgo_lMY1bkPqewMSVFpScA",
-    authDomain: "hikinpedia.firebaseapp.com",
-    projectId: "hikinpedia",
-    appId: "your-app-id" // <- replace with your real app ID
-  };
-
-  // ✅ This is your deployed website's URL on Render
-  const redirectUrl = "https://hikinpedia.onrender.com";
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  // Handle form submission
-  document.getElementById("submission-form").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const email = document.getElementById("email").value.trim();
-    let link = document.getElementById("link").value.trim();
-    const responseMessage = document.getElementById("response-message");
-
-    if (!/^https?:\/\//i.test(link)) {
-      link = "https://" + link;
-    }
-
-    try {
-      const actionCodeSettings = {
-        url: redirectUrl,
-        handleCodeInApp: true
-      };
-
-      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
-      window.localStorage.setItem("emailForSignIn", email);
-
-      // Save link to Firestore
-      const submissionRef = collection(db, "submissions");
-      await addDoc(submissionRef, {
-        email: email,
-        link: link,
-        submitted_at: new Date(),
-      });
-
-      responseMessage.textContent = "✅ Magic link sent! Check your inbox.";
-      responseMessage.style.color = "green";
-    } catch (error) {
-      responseMessage.textContent = `❌ Error: ${error.message}`;
-      responseMessage.style.color = "red";
-    }
-  });
-
-  // Handle sign-in via magic link
-  if (isSignInWithEmailLink(auth, window.location.href)) {
-    let email = window.localStorage.getItem("emailForSignIn");
-    if (!email) {
-      email = prompt("Please enter your email to complete sign-in:");
-    }
-
-    signInWithEmailLink(auth, email, window.location.href)
-      .then(() => {
-        window.localStorage.removeItem("emailForSignIn");
-        console.log("✅ User signed in via magic link.");
-      })
-      .catch((error) => {
-        console.error("❌ Sign-in error:", error);
-      });
-  }
-</script>
-
-
 <script>
+  
   function setCookie(name, value, days) {
     var expires = "";
     if (days) {
