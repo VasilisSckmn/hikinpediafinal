@@ -154,7 +154,7 @@
     <form id="submission-form" class="footer-form-container">
       <p style="background-color: #f9f9f9; padding: 5px; border-radius: 10px;">
         Στείλε μας το link από μία νέα πεζοπορία για να προστεθεί στη μηχανή αναζήτησης της HikinPedia!
-      </p>  
+      </p>
       <input type="email" id="email" placeholder="Γράψε το email σου και απάντησε στο μήνυμα επιβεβαίωσης" required>
       <input type="url" id="link" placeholder="Επικόλλησε το link της πεζοπορίας!" required>
       <button type="submit">Αποστολή</button>
@@ -176,28 +176,27 @@
 
 <!-- Include Firebase SDKs -->
 <script type="module">
-  // Firebase imports
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
   import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
   import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
-  // ✅ Firebase config (use your real values here)
+  // ✅ Firebase config - double-check your actual values!
   const firebaseConfig = {
     apiKey: "AIzaSyBaupmRVgOUNzgo_lMY1bkPqewMSVFpScA",
-    authDomain: "hikinpedia.firebaseapp.com", // Make sure this is correct
-    projectId: "your-project-id",
-    appId: "your-app-id"
+    authDomain: "hikinpedia.firebaseapp.com",
+    projectId: "hikinpedia",
+    appId: "your-app-id" // <- replace with your real app ID
   };
 
-  // ✅ Azure domain used for redirection (must be allowlisted in Firebase)
-  const redirectUrl = "https://hikinpedia-hpeybzhzazc5hmct.germanywestcentral-01.azurewebsites.net";
+  // ✅ This is your deployed website's URL on Render
+  const redirectUrl = "https://hikinpedia.onrender.com";
 
-  // Firebase initialization
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
 
-  // Form logic
+  // Handle form submission
   document.getElementById("submission-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -211,7 +210,7 @@
 
     try {
       const actionCodeSettings = {
-        url: redirectUrl, // ✅ Use the fixed URL here, not window.location.href
+        url: redirectUrl,
         handleCodeInApp: true
       };
 
@@ -234,10 +233,9 @@
     }
   });
 
-  // Magic link sign-in handler
+  // Handle sign-in via magic link
   if (isSignInWithEmailLink(auth, window.location.href)) {
     let email = window.localStorage.getItem("emailForSignIn");
-
     if (!email) {
       email = prompt("Please enter your email to complete sign-in:");
     }
@@ -252,6 +250,7 @@
       });
   }
 </script>
+
 
 <script>
   function setCookie(name, value, days) {
