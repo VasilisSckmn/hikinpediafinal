@@ -1,0 +1,32 @@
+<!-- verify.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification</title>
+</head>
+<body>
+  <h1>Verify Your Submission</h1>
+  <p id="message">Verifying...</p>
+
+  <script>
+    const token = new URLSearchParams(window.location.search).get('token');
+    
+    if (!token) {
+      document.getElementById('message').textContent = 'Missing token.';
+      return;
+    }
+
+    fetch(`http://localhost:3000/verify?token=${token}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('message').textContent = data.message;
+      })
+      .catch(err => {
+        document.getElementById('message').textContent = 'Something went wrong during verification.';
+      });
+  </script>
+</body>
+</html>
