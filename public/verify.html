@@ -1,32 +1,17 @@
-<!-- verify.html -->
+router.get('/verify', async (req, res) => {
+  const token = req.query.token;
+  if (!token) return res.status(400).send('Invalid verification link.');
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification</title>
-</head>
-<body>
-  <h1>Verify Your Submission</h1>
-  <p id="message">Verifying...</p>
+  const docRef = db.collection('submissions').doc(token);
+  const doc = await docRef.get();
 
-  <script>
-    const token = new URLSearchParams(window.location.search).get('token');
-    
-    if (!token) {
-      document.getElementById('message').textContent = 'Missing token.';
-      return;
-    }
+  if (!doc.exists) return res.status(404).send('Submission not found or already verified.');
 
-    fetch(`http://localhost:3000/verify?token=${token}`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('message').textContent = data.message;
-      })
-      .catch(err => {
-        document.getElementById('message').textContent = 'Something went wrong during verification.';
-      });
-  </script>
-</body>
-</html>
+  const data = doc.data();
+  if (data.verified) {
+    return res.send('✅ Already verified.');
+  }
+
+  await docRef.update({ verified: true });
+  res.send('✅ Your submission has been verified. Thank you!');
+});

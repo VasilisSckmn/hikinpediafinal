@@ -7,13 +7,11 @@ const googleApiKey = process.env.GOOGLE_API_KEY;
 console.log("Your Google API Key is:", googleApiKey);
 
 // Example: Using the key for an API request
-const fetch = require('node-fetch');
-
-fetch(`https://api.example.com/data?key=${googleApiKey}`)
+// You can now use the native fetch without requiring 'node-fetch'
+fetch(https://api.example.com/data?key=${googleApiKey})
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error));
-  
 
 const express = require('express');
 const path = require('path');
@@ -31,5 +29,5 @@ app.get('/', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`✅ Server is running on port ${PORT}`);
+    console.log(✅ Server is running on port ${PORT});
 });
