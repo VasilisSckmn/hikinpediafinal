@@ -1668,6 +1668,195 @@ async function search2() {
                             link.href = "ΠοικιλοΑττικη.html";
                         }
                     
+
+
+                        else if (rowData[1] === "Γαρδίκι - Φωκίδα") {
+                            link.href = "ΓαρδικιΦωκιδα.html";
+                        } else if (rowData[1] === "Βουνί - Γιούρα") {
+                            link.href = "ΒουνιΓιουρα.html";
+                        } else if (rowData[1] === "Άγιοι Δέκα - Κέρκυρα") {
+                            link.href = "ΑγιοιΔεκαΚερκυρα.html";
+                        } else if (rowData[1] === "Βουνοκορφή - Αττική") {
+                            link.href = "ΒουνοκορφηΑττικη.html";
+                        } else if (rowData[1] === "Παλαιόκαστρο - Κεφαλληνία") {
+                            link.href = "ΠαλαιοκαστροΚεφαλληνια.html";
+                        } else if (rowData[1] === "Κουτσούτης - Ρόδος") {
+                            link.href = "ΚουτσουτηςΡοδος.html";
+                        } else if (rowData[1] === "Πευκώνας - Κορινθία") {
+                            link.href = "ΠευκωναςΚορινθια.html";
+                        } else if (rowData[1] === "Καμήλα - Θεσσαλονίκη, Κιλκίς") {
+                            link.href = "ΚαμηλαΘεσσαλονικηΚιλκις.html";
+                        } else if (rowData[1] === "Παλούκι - Σκόπελος") {
+                            link.href = "ΠαλουκιΣκοπελος.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Σαντορίνη") {
+                            link.href = "ΠροφητηςΗλιαςΣαντορινη.html";
+                        } else if (rowData[1] === "Σφίγγιον - Βοιωτία") {
+                            link.href = "ΣφιγγιονΒοιωτια.html";
+                        } else if (rowData[1] === "Μπετσίκι - Μεσσηνία") {
+                            link.href = "ΜπετσικιΜεσσηνια.html";
+                        } else if (rowData[1] === "Γαλατσίδα - Βοιωτία") {
+                            link.href = "ΓαλατσιδαΒοιωτια.html";
+                        } else if (rowData[1] === "Τρίκορφο - Αιτωλοακαρνανία") {
+                            link.href = "ΤρικορφοΑιτωλοακαρνανια.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Κέα") {
+                            link.href = "ΠροφητηςΗλιαςΚεα.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Πρέβεζα") {
+                            link.href = "ΠροφητηςΗλιαςΠρεβεζα.html";
+                        } else if (rowData[1] === "Κορυφή - Θεσσαλονίκη") {
+                            link.href = "ΚορυφηΘεσσαλονικη.html";
+                        } else if (rowData[1] === "Κούκουμας - Εύβοια") {
+                            link.href = "ΚουκουμαςΕυβοια.html";
+                        } else if (rowData[1] === "Καμάρι - Αττική") {
+                            link.href = "ΚαμαριΑττικη.html";
+                        } else if (rowData[1] === "Αγριλίκι - Αττική") {
+                            link.href = "ΑγριλικιΑττικη.html";
+                        } else if (rowData[1] === "Κουκούμα - Θεσπρωτία") {
+                            link.href = "ΚουκουμαΘεσπρωτια.html";
+                        } else if (rowData[1] === "Μαυροβούνι - Λακωνία") {
+                            link.href = "ΜαυροβουνιΛακωνια.html";
+                        } else if (rowData[1] === "Πύργος - Αιτωλοακαρνανία") {
+                            link.href = "ΠυργοςΑιτωλοακαρνανια.html";
+                        } else if (rowData[1] === "Άγιος Γεώργιος - Μεσσηνία") {
+                            link.href = "ΑγιοςΓεωργιοςΜεσσηνια.html";
+                        } else if (rowData[1] === "Μικρή Τούμπα - Καβάλα") {
+                            link.href = "ΜικρηΤουμπαΚαβαλα.html";
+                        } else if (rowData[1] === "Τρίλοφο - Λέσβος") {
+                            link.href = "ΤριλοφοΛεσβος.html";
+                        } else if (rowData[1] === "Τρούλλος - Σίκινος") {
+                            link.href = "ΤρουλλοςΣικινος.html";
+                        } else if (rowData[1] === "Μαργαρίτα - Πρέβεζα") {
+                            link.href = "ΜαργαριταΠρεβεζα.html";
+                        } else if (rowData[1] === "Πυργάρι - Εύβοια") {
+                            link.href = "ΠυργαριΕυβοια.html";
+                        } else if (rowData[1] === "Μεγαβούνι - Μαγνησία") {
+                            link.href = "ΜεγαβουνιΜαγνησια.html";
+                        } else if (rowData[1] === "Παλιοβούνα - Βοιωτία, Φθιώτιδα") {
+                            link.href = "ΠαλιοβουναΒοιωτιαΦθιωτιδα.html";
+                        } else if (rowData[1] === "Αλογομάνδρα - Αργολίδα") {
+                            link.href = "ΑλογομανδραΑργολιδα.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Κεφαλληνία") {
+                            link.href = "ΠροφητηςΗλιαςΚεφαλληνια.html";
+                        } else if (rowData[1] === "Στεφάνια - Βοιωτία, Φθιώτιδα") {
+                            link.href = "ΣτεφανιαΒοιωτιαΦθιωτιδα.html";
+                        } else if (rowData[1] === "Κουρτερή - Λέσβος") {
+                            link.href = "ΚουρτερηΛεσβος.html";
+                        } else if (rowData[1] === "Μόδι - Λασίθι") {
+                            link.href = "ΜοδιΛασιθι.html";
+                        } else if (rowData[1] === "Ερμίτης - Θεσπρωτία, Πρέβεζα") {
+                            link.href = "ΕρμιτηςΘεσπρωτιαΠρεβεζα.html";
+                        } else if (rowData[1] === "Κάστρο - Λευκάδα") {
+                            link.href = "ΚαστροΛευκαδα.html";
+                        } else if (rowData[1] === "Βελανιδιά - Μαγνησία") {
+                            link.href = "ΒελανιδιαΜαγνησια.html";
+                        } else if (rowData[1] === "Δύο Βουνά - Τήνος") {
+                            link.href = "ΔυοΒουναΤηνος.html";
+                        } else if (rowData[1] === "Πυραμίδα (Βελατούρι) - Αττική") {
+                            link.href = "ΠυραμιδαΒελατουριΑττικη.html";
+                        } else if (rowData[1] === "Πύρλιας - Αχαΐα") {
+                            link.href = "ΠυρλιαςΑχαια.html";
+                        } else if (rowData[1] === "Όρος - Αίγινα") {
+                            link.href = "ΟροςΑιγινα.html";
+                        } else if (rowData[1] === "Φυλλήϊον - Λάρισα, Τρίκαλα") {
+                            link.href = "ΦυλληιονΛαρισαΤρικαλα.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Ψαρά") {
+                            link.href = "ΠροφητηςΗλιαςΨαρα.html";
+                        } else if (rowData[1] === "Φωτεινό - Ροδόπη") {
+                            link.href = "ΦωτεινοΡοδοπη.html";
+                        } else if (rowData[1] === "Σαργού Κεφάλα - Λασίθι") {
+                            link.href = "ΣαργουΚεφαλαΛασιθι.html";
+                        } else if (rowData[1] === "Δραπανοκεφάλα - Χανιά") {
+                            link.href = "ΔραπανοκεφαλαΧανια.html";
+                        } else if (rowData[1] === "Μαυροβούνι - Μαγνησία") {
+                            link.href = "ΜαυροβουνιΜαγνησια.html";
+                        } else if (rowData[1] === "Σκλόπα - Χανιά") {
+                            link.href = "ΣκλοπαΧανια.html";
+                        } else if (rowData[1] === "Κόρακας - Αμοργός") {
+                            link.href = "ΚορακαςΑμοργος.html";
+                        } else if (rowData[1] === "Μαυρόπολι - Εύβοια") {
+                            link.href = "ΜαυροπολιΕυβοια.html";
+                        } else if (rowData[1] === "Κεφάλα - Χανιά") {
+                            link.href = "ΚεφαλαΧανια.html";
+                        } else if (rowData[1] === "Μισοπέτρι - Εύβοια") {
+                            link.href = "ΜισοπετριΕυβοια.html";
+                        } else if (rowData[1] === "Λυγκοβίτσι - Αιτωλοακαρνανία") {
+                            link.href = "ΛυγκοβιτσιΑιτωλοακαρνανια.html";
+                        } else if (rowData[1] === "Γρίβας - Λάρισα") {
+                            link.href = "ΓριβαςΛαρισα.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Φωκίδα") {
+                            link.href = "ΠροφητηςΗλιαςΦωκιδα.html";
+                        } else if (rowData[1] === "Χαβαλάς - Λακωνία") {
+                            link.href = "ΧαβαλαςΛακωνια.html";
+                        } else if (rowData[1] === "Όρος - Λακωνία") {
+                            link.href = "ΟροςΛακωνια.html";
+                        } else if (rowData[1] === "Θύλακας - Λασίθι") {
+                            link.href = "ΘυλακαςΛασιθι.html";
+                        } else if (rowData[1] === "Κοκκινόβραχος - Βοιωτία") {
+                            link.href = "ΚοκκινοβραχοςΒοιωτια.html";
+                        } else if (rowData[1] === "Ντουχέρα - Ιθάκη") {
+                            link.href = "ΝτουχεραΙθακη.html";
+                        } else if (rowData[1] === "Βραχάκι - Εύβοια") {
+                            link.href = "ΒραχακιΕυβοια.html";
+                        } else if (rowData[1] === "Ζαρναούρα - Μαγνησία") {
+                            link.href = "ΖαρναουραΜαγνησια.html";
+                        } else if (rowData[1] === "Ομπόρι - Ύδρα") {
+                            link.href = "ΟμποριΥδρα.html";
+                        } else if (rowData[1] === "Λαχτιές - Κεφαλληνία") {
+                            link.href = "ΛαχτιεςΚεφαλληνια.html";
+                        } else if (rowData[1] === "Λυκοβούνι - Λακωνία") {
+                            link.href = "ΛυκοβουνιΛακωνια.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Ρόδος") {
+                            link.href = "ΠροφητηςΗλιαςΡοδος.html";
+                        } else if (rowData[1] === "Τραγόσταλος - Λασίθι") {
+                            link.href = "ΤραγοσταλοςΛασιθι.html";
+                        } else if (rowData[1] === "Μεγάλο Βουνό - Εύβοια") {
+                            link.href = "ΜεγαλοΒουνοΕυβοια.html";
+                        } else if (rowData[1] === "Κούτσικο - Εύβοια") {
+                            link.href = "ΚουτσικοΕυβοια.html";
+                        } else if (rowData[1] === "Κόρακας - Φούρνοι") {
+                            link.href = "ΚορακαςΦουρνοι.html";
+                        } else if (rowData[1] === "Όρος - Σέριφος") {
+                            link.href = "ΟροςΣεριφος.html";
+                        } else if (rowData[1] === "Μαύρον Όρος - Θεσπρωτία") {
+                            link.href = "ΜαυρονΟροςΘεσπρωτια.html";
+                        } else if (rowData[1] === "Σαρακηνόκαστρο - Εύβοια") {
+                            link.href = "ΣαρακηνοκαστροΕυβοια.html";
+                        } else if (rowData[1] === "Κουρμούτσι - Φωκίδα") {
+                            link.href = "ΚουρμουτσιΦωκιδα.html";
+                        } else if (rowData[1] === "Στέρνα - Αιτωλοακαρνανία") {
+                            link.href = "ΣτερναΑιτωλοακαρνανια.html";
+                        } else if (rowData[1] === "Ξεροβούνι - Θεσπρωτία") {
+                            link.href = "ΞεροβουνιΘεσπρωτια.html";
+                        } else if (rowData[1] === "Ηρακλής - Κέρκυρα") {
+                            link.href = "ΗρακληςΚερκυρα.html";
+                        } else if (rowData[1] === "Μερμηγκάρης - Κύθηρα") {
+                            link.href = "ΜερμηγκαρηςΚυθηρα.html";
+                        } else if (rowData[1] === "Κλαδάρες - Λάρισα") {
+                            link.href = "ΚλαδαρεςΛαρισα.html";
+                        } else if (rowData[1] === "Μαύρη Ώρα - Κορινθία") {
+                            link.href = "ΜαυρηΩραΚορινθια.html";
+                        } else if (rowData[1] === "Κάψαλος (Περιόλας) - Κάσος") {
+                            link.href = "ΚαψαλοςΠεριολαςΚασος.html";
+                        } else if (rowData[1] === "Κάστρο - Αργολίδα") {
+                            link.href = "ΚαστροΑργολιδα.html";
+                        } else if (rowData[1] === "Κακό Τσουρούμι - Ρόδος") {
+                            link.href = "ΚακοΤσουρουμιΡοδος.html";
+                        } else if (rowData[1] === "Αυγό - Θεσπρωτία") {
+                            link.href = "ΑυγοΘεσπρωτια.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Φωκίδα") {
+                            link.href = "ΠροφητηςΗλιαςΦωκιδα.html";
+                        } else if (rowData[1] === "Γέρακας - Ρόδος") {
+                            link.href = "ΓερακαςΡοδος.html";
+                        } else if (rowData[1] === "Ακόντιο - Βοιωτία") {
+                            link.href = "ΑκοντιοΒοιωτια.html";
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Κάρπαθος") {
+                            link.href = "ΠροφητηςΗλιαςΚαρπαθος.html";
+                        } else if (rowData[1] === "Πεντεσκούφι - Κορινθία") {
+                            link.href = "ΠεντεσκουφιΚορινθια.html";
+                        }
+                        
+                        
+
+                         
                     
                                
                         
