@@ -678,6 +678,15 @@ h1 a {
     text-decoration: none;
   }
 
+  body {
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+
   #visitCount {
     font-size: 14px; /* Adjust font size */
   }
