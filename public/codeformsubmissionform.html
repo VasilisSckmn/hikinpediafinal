@@ -1,87 +1,51 @@
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-  import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, fetchSignInMethodsForEmail, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
-  // Firebase Config
-  const firebaseConfig = {
-    apiKey: "AIzaSyBaupmRVgOUNzgo_lMY1bkPqewMSVFpScA",
-    authDomain: "hikinpedia.firebaseapp.com",
-    projectId: "hikinpedia",
-    appId: "your-app-id"
-  };
+<form id="submission-form">
+  <input type="email" id="email" required>
+  <input type="url" id="link" required>
+  <button type="submit">Submit</button>
+</form>
+<p id="response-message"></p>
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+<script>
+  document.getElementById('submission-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  // Helper: Generate a random password
-  function generateRandomPassword() {
-    return Math.random().toString(36).slice(-10) + "!A1";
-  }
-
-  document.getElementById("submission-form").addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const email = document.getElementById("email").value.trim();
-    const link = document.getElementById("link").value.trim();
-    const responseMessage = document.getElementById("response-message");
+    const email = document.getElementById('email').value;
+    const link = document.getElementById('link').value;
 
     try {
-      // Check if the user already exists
-      const existing = await fetchSignInMethodsForEmail(auth, email);
-
-      let userCredential;
-
-      if (existing.length === 0) {
-        // If not registered, create user with random password
-        const password = generateRandomPassword();
-        userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        await sendEmailVerification(userCredential.user);
-        responseMessage.textContent = "✅ Σου στείλαμε email επιβεβαίωσης. Πάτα το link στο email και μετά ξαναδοκίμασε.";
-        responseMessage.style.color = "green";
-        return;
-      } else {
-        // If already registered, sign in with some default password
-        const password = prompt("Έχεις ήδη κάνει εγγραφή. Δώσε τον κωδικό σου για επιβεβαίωση (ή χρησιμοποίησε το reset password).");
-        userCredential = await signInWithEmailAndPassword(auth, email, password);
-      }
-
-      const user = userCredential.user;
-      if (!user.emailVerified) {
-        await sendEmailVerification(user);
-        responseMessage.textContent = "✉️ Σου στείλαμε νέο email επιβεβαίωσης. Πάτα το link στο email και μετά ξαναδοκίμασε.";
-        responseMessage.style.color = "orange";
-        return;
-      }
-
-      // ✅ Email is verified – Save the submission
-      const submissionRef = collection(db, "submissions");
-      await addDoc(submissionRef, {
-        email: email,
-        link: link.startsWith("http") ? link : "https://" + link,
-        submitted_at: new Date(),
+      const res = await fetch('http://localhost:3000/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, link }),
       });
 
-      responseMessage.textContent = "✅ Το link στάλθηκε επιτυχώς!";
-      responseMessage.style.color = "green";
+      const data = await res.json();
+
+      if (data.message) {
+        document.getElementById('response-message').textContent = data.message;
+        document.getElementById('response-message').style.color = 'green';
+      } else {
+        document.getElementById('response-message').textContent = 'Something went wrong.';
+        document.getElementById('response-message').style.color = 'red';
+      }
     } catch (error) {
-      console.error(error);
-      responseMessage.textContent = `❌ Σφάλμα: ${error.message}`;
-      responseMessage.style.color = "red";
+      document.getElementById('response-message').textContent = 'Error: ' + error.message;
+      document.getElementById('response-message').style.color = 'red';
     }
   });
-
 </script>
 
+<form id="submission-form" class="footer-form-container">
+  <p style="background-color: #f9f9f9; padding: 5px; border-radius: 10px;"> 
+    Τα βουνά είναι πηγή χαράς και ευεξίας, μην τα βγάλεις ποτέ από τη ζωή σου! <br>
+    <br> Στείλε μας το link από μία νέα πεζοπορία για να προστεθεί στη μηχανή αναζήτησης της HikinPedia! <br> Μπορείς επίσης να μας στείλεις στο hikinpedia@gmail.com <br> <br> Ο ιστότοπος στηρίζεται σε εσάς για να συμπεριλάβει όσο το δυνατόν περισσότερες εμπειρίες πεζοπόρων.
 
-  <footer>
-    <form id="submission-form" class="footer-form-container">
-      <p style="background-color: #f9f9f9; padding: 5px; border-radius: 10px;">
-        Στείλε μας το link από μία νέα πεζοπορία για να προστεθεί στη μηχανή αναζήτησης της HikinPedia!
-      </p>
-      <input type="email" id="email" placeholder="Γράψε το email σου" required>
-      <input type="url" id="link" placeholder="Επικόλλησε το link της πεζοπορίας!" required>
-      <button type="submit">Αποστολή</button>
-    </form>
-    <p id="response-message"></p>
-  </footer>
+  </p>  
+
+
+    <input type="email" id="email" placeholder="Γράψε το email σου και απάντησε στο μήνυμα επιβεβαίωσης" required>
+  <input type="url" id="link" placeholder="Επικόλλησε το link της πεζοπορίας!" required>
+  <button type="submit">Αποστολή</button>
+</form>
+<p id="response-message"></p>
