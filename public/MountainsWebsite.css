@@ -125,50 +125,6 @@ h1 a {
     text-align: center;
   }
 
-  #cookieConsent {
-    display: none;
-    position: fixed;
-    bottom: 15px;
-    left: 15px;
-    margin-left: 40%;
-    margin-right: 40%;
-    background-color: #576a78;
-    color: #222;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 12px;
-    font-family: sans-serif;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    max-width: 280px;
-    flex-wrap: wrap;
-  }
-  
-  #cookieConsent button {
-    padding: 4px 8px;
-    font-size: 11px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background: #0078d4;
-    color: #fff;
-  }
-  
-  #cookieConsent button:hover {
-    background: #005fa3;
-  }
-  
-  #declineCookies {
-    background: #ccc;
-    color: #222;
-  }
-  
-  #declineCookies:hover {
-    background: #bbb;
-  }
   
   
   .scrollable-table {
@@ -395,30 +351,7 @@ h1 a {
     text-align: center;
   }
   
-  #cookieConsent {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #000;
-    color: #fff;
-    padding: 20px;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-  }
-  #cookieConsent button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  #cookieConsent button#declineCookies {
-    background-color: #f44336; /* Red color for decline button */
-  }
+  
   
   footer {
     position: relevant;
@@ -632,13 +565,7 @@ h1 a {
     font-size: 14px; /* Adjust font size */
   }
 
-  #cookieConsent {
-    font-size: 12px;
-    padding: 3px;
-    margin-left: 20%;
-    margin-right: 20%;
-    background-color: #576a78;
-  }
+  
 
  
 
@@ -699,14 +626,7 @@ h1 a {
     font-size: 14px; /* Smaller font size */
   }
 
-  #cookieConsent {
-    flex-direction: column; /* Stack content vertically */
-    padding: 10px; /* Adjust padding */
-  }
-  #cookieConsent button {
-    padding: 8px 12px; /* Reduce button size */
-    margin-top: 10px; /* Add margin between buttons */
-  }
+  
 
   footer {
     width: 90%; /* Ensure footer fits mobile screens */
@@ -828,22 +748,6 @@ h1 a {
   background-color: #555;
 }
 
-@media (max-width: 480px) {
-  #cookieConsent {
-    bottom: 10px;
-    left: 10px;
-    max-width: 90%;
-    font-size: 11px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  #cookieConsent button {
-    margin-top: 4px;
-    width: 100%;
-  }
-}
-
 
 #langToggleBtn {
   position: fixed;
@@ -887,3 +791,78 @@ h1 a {
   }
 }
 
+/* === Base Styles (Desktop) === */
+#cookieConsent {
+  display: none;
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #576a78;
+  color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: sans-serif;
+  z-index: 9999;
+  max-width: 320px;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+/* === Buttons === */
+#cookieConsent button {
+  padding: 8px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 4px;
+  min-width: 100px;
+}
+
+/* Accept (Συμφωνώ) Button */
+#cookieConsent button#acceptCookies {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+#cookieConsent button#acceptCookies:hover {
+  background-color: #388e3c;
+}
+
+/* Decline (Διαφωνώ) Button */
+#cookieConsent button#declineCookies {
+  background-color: #f44336;
+  color: #fff;
+}
+
+#cookieConsent button#declineCookies:hover {
+  background-color: #d32f2f;
+}
+
+/* === Responsive: Mobile Styles === */
+@media (max-width: 480px) {
+  #cookieConsent {
+    bottom: 10px;
+    left: 5%;
+    transform: none;
+    width: 90%;
+    font-size: 11px;
+    padding: 15px;
+    align-items: center;
+    text-align: center;
+  }
+
+  #cookieConsent button {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
