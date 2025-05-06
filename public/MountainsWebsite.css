@@ -809,8 +809,6 @@ h1 a {
   max-width: 320px;
   width: 90%;
   box-sizing: border-box;
-
-  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
