@@ -1408,13 +1408,13 @@ async function search2() {
                             link.href = "ΜεγαβουνιΑργολιδα.html";
                         } else if (rowData[1] === "Μικρό - Ηράκλειο") {
                             link.href = "ΜικροΗρακλειο.html";
-                        } else if (rowData[1] === "Προφήτης Ηλίας\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B - Αμοργός") {
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Αμοργός") {
                             link.href = "ΠροφητηςΗλιαςΑμοργος.html";
                         } else if (rowData[1] === "Χορεύτρα - Λέσβος") {
                             link.href = "Χορευτρα.html";
                         } else if (rowData[1] === "Γούπατα - Αιτωλοακαρνανία") {
                             link.href = "Γουπατα.html";
-                        } else if (rowData[1] === "Προφήτης Ηλίας\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B - Νίσυρος") {
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Νίσυρος") {
                             link.href = "ΠροφητηςΗλιαςΝισυρος.html";
                         } else if (rowData[1] === "Πασχαλιές - Βοιωτία") {
                             link.href = "Πασχαλιες.html";
@@ -1436,7 +1436,7 @@ async function search2() {
                             link.href = "Λαχανας.html";
                         } else if (rowData[1] === "Χόμαλης - Κάρπαθος") {
                             link.href = "Χομαλης.html";
-                        } else if (rowData[1] === "Προφήτης Ηλίας\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B - Άνδρος") {
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Άνδρος") {
                             link.href = "ΠροφητηςΗλιαςΑνδρος684.html";
                         } else if (rowData[1] === "Πυραμίς - Αιτωλοακαρνανία") {
                             link.href = "ΠυραμιςΑιτωλοακαρνανια.html";
@@ -1444,7 +1444,7 @@ async function search2() {
                             link.href = "ΒιγλαΗρακλειο.html";
                         } else if (rowData[1] === "Στύρων Βουνά - Εύβοια") {
                             link.href = "ΣτυρωνΒουνα.html";
-                        } else if (rowData[1] === "Προφήτης Ηλίας\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B - Σίφνος") {
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Σίφνος") {
                             link.href = "ΠροφητηςΗλιαςΣιφνος.html";
                         } else if (rowData[1] === "Πεζούλισες - Αχαΐα") {
                             link.href = "Πεζουλισες.html";
@@ -1458,7 +1458,7 @@ async function search2() {
                             link.href = "ΛυκοχωριουΒουνο.html";
                         } else if (rowData[1] === "Κουλές - Ρέθυμνο") {
                             link.href = "ΚουλεςΡεθυμνο.html";
-                        } else if (rowData[1] === "Προφήτης Ηλίας\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B - Κάλυμνος") {
+                        } else if (rowData[1] === "Προφήτης Ηλίας - Κάλυμνος") {
                             link.href = "ΠροφητηςΗλιαςΚαλυμνος.html";
                         } else if (rowData[1] === "Πριονόσκαλα - Αιτωλοακαρνανία") {
                             link.href = "Πριονοσκαλα.html";
@@ -1488,7 +1488,7 @@ async function search2() {
                             link.href = "ΠροφητηςΗλιαςΦθιωτιδα655.html";
                         } else if (rowData[1] === "Κορυφή - Έβρος") {
                             link.href = "ΚορυφηΕβρος654.html";
-                        } else if (rowData[1] === "Προφήτης Ηλίας\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B\u200B - Τήλος") {
+                        } else if (rowData[1] === "Προφήτης Ηλίας​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​ - Τήλος") {
                             link.href = "ΠροφητηςΗλιαςΤηλος.html";
                         } else if (rowData[1] === "Γέρο Γιώργης - Αιτωλοακαρνανία") {
                             link.href = "ΓεροΓιωργης.html";
@@ -1622,8 +1622,6 @@ async function search2() {
                             link.href = "ΕρωςΥδρα.html";
                         } else if (rowData[1] === "Αστέρι - Ζάκυνθος") {
                             link.href = "ΑστεριΖακυνθος.html";
-                        } else if (rowData[1] === "Κάψαλος (Σύσφι) - Σέριφος") {
-                            link.href = "ΚαψαλοςΣυσφιΣεριφος.html";
                         } else if (rowData[1] === "Τρούλλος - Σέριφος") {
                             link.href = "ΤρουλλοςΣεριφος.html";
                         } else if (rowData[1] === "Βίγλα - Ανάφη") {
@@ -1668,8 +1666,8 @@ async function search2() {
                             link.href = "ΠοικιλοΑττικη.html";
                         }
                     
-
-
+                        
+                    
                         else if (rowData[1] === "Γαρδίκι - Φωκίδα") {
                             link.href = "ΓαρδικιΦωκιδα.html";
                         } else if (rowData[1] === "Βουνί - Γιούρα") {
@@ -1855,7 +1853,8 @@ async function search2() {
                         }
                         
                         
-
+                    
+                    
                          
                     
                                
