@@ -2655,7 +2655,9 @@ async function search() {
     searchResults.innerHTML = '';
 
     if (searchTerm) {
-        const ul = document.createElement('ul'); 
+        const ul = document.createElement('ul');
+        ul.id = 'resultsList'; // ✅ Add this line
+                
         
         data.forEach(rowData => {
             const normalizedFirstColumnData = convertToGreekLatin(removeDiacritics(rowData[1].toLowerCase()));

@@ -307,30 +307,7 @@ h1 a {
   }
   
   
-  .final {
-    width: 500px; /* Adjust the width as needed */
-    background-color:  #00e66b; /* Choose your desired background color */
-    border: 1px solid #ccc; /* Optional: Add a border */
-    border-radius: 5px; /* Optional: Add rounded corners */
-    position: fixed;
-    top: 58%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    max-height: calc(60% - 20px); /* Subtract the height of the scrollbar */
-    overflow-y: auto; /* Add vertical scrollbar when content exceeds max height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .final ul {
-    align-self: center; /* Center the <ul> vertically */
-  }
-  
-  .final li a {
-    text-decoration: none; /* Remove underline */
-  }
+
   
   #visitCount {
     text-align: center;
@@ -577,33 +554,7 @@ h1 a {
     margin: 0 auto; /* Center the textarea */
   }
 
-  .final {
-    position: static;
-    transform: none;
-    top: auto;
-    left: auto;
 
-    width: 90%;
-    max-width: 100%;
-    margin: 20px auto;
-    font-size: 16px;
-    padding: 10px;
-    box-sizing: border-box;
-
-    display: block;
-    text-align: left; /* Restore left-aligned text */
-  }
-
-  .final ul {
-    margin: 10px 0;
-    padding-left: 20px; /* Indent for bullets */
-    list-style: disc;   /* Restore bullet style */
-  }
-
-  .final li a {
-    font-size: 14px;
-    text-decoration: none;
-  }
 
   body {
     overflow-x: hidden;
@@ -857,5 +808,79 @@ h1 a {
   #cookieConsent button {
     width: 100%;
     margin-top: 8px;
+  }
+}
+
+
+/* === DESKTOP === */
+.final {
+  width: 500px;
+  background-color: #00e66b;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: fixed;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  max-height: calc(60% - 20px);
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.final ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin: 0;
+  padding-left: 40px; /* Increased padding to shift bullets + text more to the right */
+  text-align: left;
+}
+
+.final li {
+  line-height: 1.4; /* Reduced line spacing */
+}
+
+.final li a {
+  text-decoration: none;
+  color: blue; /* Preserved your blue link color */
+}
+
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .final {
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    width: 90%;
+    max-width: 100%;
+    margin: 20px auto;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  .final ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin: 0;
+    padding-left: 60px; /* Increased padding for mobile as well */
+    text-align: left;
+  }
+
+  .final li {
+    line-height: 1.4;
+  }
+
+  .final li a {
+    font-size: 14px;
+    text-decoration: none;
+    color: blue; /* Still blue on mobile */
   }
 }
