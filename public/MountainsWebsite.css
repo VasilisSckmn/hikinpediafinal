@@ -52,7 +52,7 @@ h1 a {
   
   .area {
   text-align: center;
-  font-size: 17px;
+  font-size: 15px;
   text-decoration-line: none;
   }
   
@@ -179,8 +179,8 @@ h1 a {
     font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
     padding: 0px;
     border-radius: 10px;
-    margin-bottom: 5px;
-    width: 430px;
+    margin-bottom: px;
+    width: 380px;
     margin: 0 auto;
     text-align: left;
   }
@@ -449,7 +449,7 @@ h1 a {
   }
 
   .area {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   nav ul li a {
@@ -482,8 +482,8 @@ h1 a {
   }
 
   .searchbox {
-    width: 90%; /* Adjust to fit within mobile screens */
-    padding: 5px;
+    width: 80%; /* Adjust to fit within mobile screens */
+    padding: 2px;
   }
 
   #searchInput {
@@ -904,4 +904,9 @@ h2:hover {
   }
 }
 
-
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
