@@ -814,6 +814,10 @@ h1 a {
   outline: none;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 /* ========== MOBILE STYLES ========== */
 @media (max-width: 768px) {
   .main-navigation {

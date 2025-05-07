@@ -15,7 +15,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            height: auto;
             background-color: #a3d9d9;
         }
 
@@ -87,7 +88,7 @@
         .details h2 {
             font-size: 24px;
             margin-bottom: 10px;
-            background-color: #006666;
+            background-color: #a4b9b9;
             padding: 14px 20px;
             border-radius: 10px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
@@ -110,17 +111,27 @@
         }
 
         @media (max-width: 768px) {
-            .calendar-container {
-                flex-direction: column;
-                align-items: center;
-            }
+    .calendar-container {
+        flex-direction: column;
+        align-items: center;
+        overflow: visible; /* Ensure children are not clipped */
+    }
 
-            .calendar,
-            .details {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
+    .calendar,
+    .details {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .details {
+        position: relative; /* Reset any absolute behavior */
+        z-index: 1;          /* Ensure it appears above other elements if overlapping */
+    }
+}
+
+
+
     </style>
     <link rel="stylesheet" href="MountainsWebsite.css" />
 </head>
