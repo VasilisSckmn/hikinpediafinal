@@ -875,24 +875,31 @@ h1 a {
   }
 }
 
-
 h2 {
   text-align: center;
   font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
-  font-size: 18px;
-  padding: 10px 20px;
-  -webkit-text-stroke: 1px green; /* For compatibility with some browsers */
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)); /* Slightly lighter gradient */
-  color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Softened shadow */
+  font-size: 20px; /* Reduced font size by 2 */
+  font-weight: 600; /* Bold text for extra emphasis */
+  padding: 10px 20px; /* Reduced padding for a more compact box */
+  color: #004d00; /* Deep green text */
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7), 0px 0px 10px rgba(0, 0, 0, 0.4); /* Subtle glow effect with light and dark shadows */
+  background-color: rgba(224, 247, 250, 0.7); /* Light cyan background with transparency */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Soft background shadow to make the heading pop */
+  margin: 20px auto; /* Centering the heading on the page */
+  transition: all 0.3s ease; /* Smooth transition effect for interactivity */
+}
+
+h2:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 @media (max-width: 768px) { /* Mobile adjustments */
   h2 {
-    font-size: 16px; /* Adjusted for readability on smaller screens */
-    padding: 8px 16px; /* More consistent padding */
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)); /* Lighter background for mobile */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* More subtle shadow on mobile */
+    font-size: 16px; /* Reduced font size for mobile */
+    padding: 8px 18px; /* Adjusted padding for a more compact mobile view */
+    background-color: rgba(241, 248, 233, 0.8); /* Soft light green background with transparency for mobile */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow on mobile */
   }
 }
