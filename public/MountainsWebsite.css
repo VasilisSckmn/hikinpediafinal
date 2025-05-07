@@ -83,9 +83,6 @@ h1 a {
     width: 100%; 
   }
   
-  .main-navigation {
-    display: inline-block;
-  }
   
   nav ul li a {
     display: inline-block;
@@ -617,87 +614,8 @@ h1 a {
   }
 }
 
-/* Default styles for the navigation */
-.main-navigation {
-  display: block;
-}
-
-.main-navigation ul {
-  border: none;
-  outline: none;
-}
-
-.main-navigation ul li {
-  border: none;
-  outline: none;
-}
-
-.main-navigation ul li a {
-  border: none;
-  outline: none;
-}
-
-
-/* For mobile screens */
-@media (max-width: 768px) {
-  /* Hide menu by default on mobile */
-  .main-navigation ul {
-    display: none;
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-  }
-
-  /* Show menu when toggled */
-  .main-navigation ul.show {
-    display: block;
-  }
-
-  /* Style for menu items */
-  .main-navigation > ul > li {
-    text-align: center;
-    background-color: #b4b3b3;
-    padding: none;
-  }
-
-  .main-navigation > ul > li > a {
-    color: white;
-    text-decoration: none;
-    display: block;
-  }
-
-  /* Hamburger menu styles (only on mobile) */
-  .menu-toggle {
-    display: block;
-    background-color: #006600;
-    padding: 0px;
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    width: 100%;
-    font-size: 24px;
-    border: 2px solid #D3D3D3; /* Light grey border */
-    border-radius: 12px; /* Rounded corners */
-    outline: none; /* Remove any outline */
-  }
-  
-  /* Add a little space between the menu items */
-  .main-navigation > ul > li {
-    border-bottom: none;
-  }
-}
 
 /* Hide the hamburger button on desktop (screens wider than 768px) */
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none;
-  }
-}
-
-/* Optional: To style the active (hover) state of a menu item */
-.main-navigation ul li a:hover {
-  background-color: #555;
-}
 
 
 #langToggleBtn {
@@ -882,5 +800,93 @@ h1 a {
     font-size: 14px;
     text-decoration: none;
     color: blue; /* Still blue on mobile */
+  }
+}
+
+
+/* ========== DESKTOP STYLES ========== */
+
+.navigation {
+  text-align: center;
+  width: 100%;
+}
+
+.main-navigation {
+  display: inline-block;
+}
+
+.main-navigation ul {
+  border: none;
+  outline: none;
+}
+
+.main-navigation ul li {
+  border: none;
+  outline: none;
+}
+
+.main-navigation ul li a {
+  border: none;
+  outline: none;
+}
+
+/* ========== MOBILE STYLES ========== */
+@media (max-width: 768px) {
+  .main-navigation {
+    position: relative; /* Needed for absolute menu */
+    display: block;
+    width: 100%;
+  }
+
+  /* Hamburger menu button */
+  .menu-toggle {
+    display: block;
+    background-color: #006600;
+    padding: 0;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    border: 2px solid #D3D3D3;
+    border-radius: 12px;
+    outline: none;
+  }
+
+  /* Hide menu by default */
+  .main-navigation ul {
+    display: none;
+    position: absolute;
+    bottom: 100%; /* Show menu above the button */
+    left: 0;
+    width: 100%;
+    background-color: #b4b3b3;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    z-index: 1000;
+  }
+
+  /* Show menu when toggled */
+  .main-navigation ul.show {
+    display: block;
+  }
+
+  /* Menu item styling */
+  .main-navigation ul li {
+    text-align: center;
+    border-bottom: none;
+  }
+
+  .main-navigation ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+  }
+
+  /* Optional: Hover effect */
+  .main-navigation ul li a:hover {
+    background-color: #555;
   }
 }
