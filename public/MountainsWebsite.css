@@ -15,7 +15,7 @@ h1 a {
 
   h1 {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     }
   
     
@@ -430,12 +430,8 @@ h1 a {
   /* General mobile adjustments */
 @media screen and (max-width: 768px) {
   h1 a {
-    font-size: 28px; /* Reduced size for better fit */
+    font-size: 25px; /* Reduced size for better fit */
     text-align: center;
-  }
-
-  h1 {
-    font-size: 32px; /* Smaller font size for mobile */
   }
 
 
@@ -882,7 +878,7 @@ h1 a {
 h2 {
   text-align: center;
   font-family: "Noto Sans", "Open Sans", Arial, sans-serif;
-  font-size: 20px; /* Reduced font size by 2 */
+  font-size: 18px; /* Reduced font size by 2 */
   font-weight: 600; /* Bold text for extra emphasis */
   padding: 10px 20px; /* Reduced padding for a more compact box */
   color: #004d00; /* Deep green text */
@@ -901,9 +897,11 @@ h2:hover {
 
 @media (max-width: 768px) { /* Mobile adjustments */
   h2 {
-    font-size: 16px; /* Reduced font size for mobile */
+    font-size: 14px; /* Reduced font size for mobile */
     padding: 8px 18px; /* Adjusted padding for a more compact mobile view */
     background-color: rgba(241, 248, 233, 0.8); /* Soft light green background with transparency for mobile */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow on mobile */
   }
 }
+
+
