@@ -1170,7 +1170,7 @@ async function search() {
 function convertToGreekLatin(str) {
     const conversionMap = {
         
-        'a': 'α',
+       'a': 'α',
         'b': 'β',
         'c': 'κ',
         'd': 'δ',
@@ -1189,6 +1189,7 @@ function convertToGreekLatin(str) {
         'q': 'κ',
         'r': 'ρ',
         's': 'σ',
+        's': 'ς',
         't': 'τ',
         'u': 'υ',
         'v': 'β',
@@ -1199,6 +1200,8 @@ function convertToGreekLatin(str) {
         'th': 'θ',
         'y': 'υ',
         'x': 'χ',
+        'v': 'ω',
+
 
     };
 
