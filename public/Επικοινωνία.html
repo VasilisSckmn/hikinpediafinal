@@ -29,7 +29,12 @@
         
           </p>  
         
+          <input type="email" id="email" name="email" required placeholder="Γράψε το email σου">
+<input type="url" id="link" name="link" required placeholder="Επικόλλησε το link της πεζοπορίας!">
 
+            <button type="submit">Αποστολή</button>
+          </form>
+          <p id="response-message"></p>
 
 
     </footer>
@@ -46,5 +51,31 @@
     <script src="MountainsWebsite.js"></script>
     <script src="AlphabeticalOrder.js"></script>
 
+    <script>
+      console.log("✅ JS loaded");
+  
+      document.getElementById('submission-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+  
+        const email = document.getElementById('email').value;
+        const link = document.getElementById('link').value;
+  
+        try {
+          const response = await fetch('/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, link })
+          });
+  
+          const data = await response.json();
+          console.log("✅ Server said:", data);
+          document.getElementById('response-message').textContent = data.message;
+        } catch (error) {
+          console.error("❌ Error sending request", error);
+          document.getElementById('response-message').textContent = '⚠️ Αποτυχία επικοινωνίας με τον server.';
+        }
+      });
+    </script>
+    
 </body>
 </html>
