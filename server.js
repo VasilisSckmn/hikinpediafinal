@@ -1,63 +1,33 @@
 require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
-const bodyParser = require('body-parser');
+
+// Step 3: Access your environment variables
+const googleApiKey = process.env.GOOGLE_API_KEY;
+
+// Use the Google API key in your application logic
+console.log("Your Google API Key is:", googleApiKey);
+
+// Example: Using the key for an API request
+// You must wrap the URL in quotes and use backticks for template strings
+fetch(`https://api.example.com/data?key=${googleApiKey}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // ✅ Updated to support Azure
 
-// ✅ Middleware
+// Serve static files (HTML, CSS, JS, images) from 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
-// ✅ SQLite setup
-const db = new sqlite3.Database('./submissions.db');
-db.run(`
-  CREATE TABLE IF NOT EXISTS submissions (
-    email TEXT,
-    link TEXT,
-    date TEXT
-  )
-`);
-
-// ✅ Serve the main HTML
+// Serve index.html as the homepage
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// ✅ Submission endpoint
-app.post('/submit', (req, res) => {
-  console.log("📨 Received POST /submit");
-  const { email, link } = req.body;
-  const today = new Date().toISOString().split('T')[0];
-
-  if (!email || !link) {
-    return res.status(400).json({ message: '❌ Χρειάζονται email και link.' });
-  }
-
-  db.get(`SELECT * FROM submissions WHERE email = ? AND date = ?`, [email, today], (err, row) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ message: '⚠️ Σφάλμα βάσης δεδομένων.' });
-    }
-
-    if (row) {
-      return res.json({ message: '❌ Έχεις ήδη υποβάλει έναν σύνδεσμο σήμερα. Δοκίμασε ξανά αύριο!' });
-    }
-
-    db.run(`INSERT INTO submissions (email, link, date) VALUES (?, ?, ?)`, [email, link, today], (err) => {
-      if (err) {
-        console.error(err);
-        return res.status(500).json({ message: '❌ Αποτυχία υποβολής.' });
-      }
-
-      res.json({ message: '✅ Ευχαριστούμε! Ο σύνδεσμος καταχωρήθηκε.' });
-    });
-  });
-});
-
+// Start the server
 app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+    console.log(`✅ Server is running on port ${PORT}`);
 });
