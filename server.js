@@ -9,25 +9,34 @@ const fs = require('fs');
 // === Lowdb setup ===
 const { Low } = require('lowdb');
 const { JSONFile } = require('lowdb/node');
-const adapter = new JSONFile(path.join(__dirname, 'db.json')); // Absolute path for file
+const dbPath = path.join(__dirname, 'db.json'); // Absolute path for file
+const adapter = new JSONFile(dbPath);
 
-// Ensure that db.json exists and has data
-if (!fs.existsSync(path.join(__dirname, 'db.json'))) {
+// Ensure that db.json exists and has default data
+if (!fs.existsSync(dbPath)) {
     console.log("Creating db.json with default data...");
-    fs.writeFileSync(path.join(__dirname, 'db.json'), JSON.stringify({ submissions: [] }));
+    fs.writeFileSync(dbPath, JSON.stringify({ submissions: [] }, null, 2));
 }
 
+// Initialize the lowdb database
 const db = new Low(adapter);
 
-// Initialize DB with default data
+// Initialize DB with default data if missing
 async function initDB() {
-    await db.read();
-
-    if (!db.data) {
-        db.data = { submissions: [] }; // Default data
-        await db.write();
+    try {
+        await db.read();
+        
+        // If the db is empty or data is missing, we will set the default
+        if (!db.data || !db.data.submissions) {
+            console.log("Initializing default data in db.json...");
+            db.data = { submissions: [] };
+            await db.write();
+        }
+    } catch (error) {
+        console.error("Error initializing DB:", error);
     }
 }
+
 initDB();
 
 // === Google API Key logic ===
