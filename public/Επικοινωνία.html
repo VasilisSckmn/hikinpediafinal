@@ -51,31 +51,37 @@
     <script src="MountainsWebsite.js"></script>
     <script src="AlphabeticalOrder.js"></script>
 
-    <script>
-      console.log("✅ JS loaded");
-  
-      document.getElementById('submission-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-  
-        const email = document.getElementById('email').value;
-        const link = document.getElementById('link').value;
-  
-        try {
-          const response = await fetch('/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, link })
-          });
-  
-          const data = await response.json();
-          console.log("✅ Server said:", data);
-          document.getElementById('response-message').textContent = data.message;
-        } catch (error) {
-          console.error("❌ Error sending request", error);
-          document.getElementById('response-message').textContent = '⚠️ Αποτυχία επικοινωνίας με τον server.';
-        }
+<script>
+  const form = document.getElementById('submission-form');
+  const responseMessage = document.getElementById('response-message');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const link = document.getElementById('link').value;
+
+    try {
+      const response = await fetch('https://hikinpedia.onrender.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, link }),
       });
-    </script>
+
+      const data = await response.json();
+      responseMessage.textContent = data.message;
+      responseMessage.style.color = data.success ? 'green' : 'red';
+
+      if (data.success) {
+        form.reset();
+      }
+    } catch (error) {
+      console.error('Error submitting:', error);
+      responseMessage.textContent = 'Submission failed. Check console.';
+      responseMessage.style.color = 'red';
+    }
+  });
+</script>
     
 </body>
 </html>
