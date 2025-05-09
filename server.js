@@ -4,19 +4,27 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // ✅ NEW: CORS support
+const fs = require('fs');
 
 // === New: lowdb setup ===
 const { Low } = require('lowdb');
 const { JSONFile } = require('lowdb/node');
 const adapter = new JSONFile('db.json');
+
+// Check if the db.json file exists and is empty
+if (!fs.existsSync('db.json') || fs.readFileSync('db.json').toString().trim() === '') {
+    // If not, initialize it with default data
+    fs.writeFileSync('db.json', JSON.stringify({ submissions: [] }));
+}
+
 const db = new Low(adapter);
 
 // Initialize DB
 async function initDB() {
     await db.read();
-    // Check if the database is empty and initialize it with default data
+    // Ensure the default data is there
     if (!db.data) {
-        db.data = { submissions: [] }; // ✅ provide default structure
+        db.data = { submissions: [] }; // Default data
         await db.write();
     }
 }
