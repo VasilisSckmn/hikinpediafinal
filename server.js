@@ -23,14 +23,14 @@ if (!fs.existsSync(dbPath)) {
 // Initialize the lowdb database
 const db = new Low(adapter);
 
-// Initialize DB with default data if missing
+// Force initialization of DB with default data if missing or empty
 async function initDB() {
     try {
         await db.read();
         
         // Log current database state
         console.log("Database read:", db.data);
-        
+
         // If the db is empty or data is missing, we will set the default
         if (!db.data || !db.data.submissions) {
             console.log("Initializing default data in db.json...");
