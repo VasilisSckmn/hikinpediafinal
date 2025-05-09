@@ -47,7 +47,7 @@ app.post('/submit', (req, res) => {
   const now = new Date();
   const last = submissions.find(s => s.email === email && isSameDay(new Date(s.date), now));
   if (last) {
-    return res.status(429).json({ success: false, message: 'Already submitted today' });
+    return res.status(429).json({ success: false, message: 'Υπάρχει όριο για ένα link την ημέρα :/' });
   }
 
   const entry = { email, link, date: now.toISOString() };
@@ -57,7 +57,7 @@ app.post('/submit', (req, res) => {
   try {
     fs.writeFileSync(dbPath, JSON.stringify({ submissions }, null, 2));
     console.log('✔ Submission saved:', entry);
-    res.json({ success: true, message: 'Submission received successfully!' });
+    res.json({ success: true, message: 'Ευχαριστούμε για τη συνεισφορά σου!' });
   } catch (err) {
     console.error('Error saving submission:', err);
     res.status(500).json({ success: false, message: 'Server error, try again later.' });
