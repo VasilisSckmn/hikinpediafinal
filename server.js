@@ -6,95 +6,68 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 
-// === Lowdb setup ===
-const { Low } = require('lowdb');
-const { JSONFile } = require('lowdb/node');
-const dbPath = path.join(__dirname, 'db.json'); // Absolute path for file
-const adapter = new JSONFile(dbPath);
-
-// Check if db.json exists and create with default data if missing
-if (!fs.existsSync(dbPath)) {
-    console.log("db.json file does not exist. Creating db.json with default data...");
-    fs.writeFileSync(dbPath, JSON.stringify({ submissions: [] }, null, 2));  // Default data
-} else {
-    console.log("db.json file exists.");
-}
-
-// Initialize the lowdb database
-const db = new Low(adapter);
-
-// Force initialization of DB with default data if missing or empty
-async function initDB() {
-    try {
-        await db.read();
-        
-        // Log current database state
-        console.log("Database read:", db.data);
-
-        // If the db is empty or data is missing, we will set the default
-        if (!db.data || !db.data.submissions) {
-            console.log("Initializing default data in db.json...");
-            db.data = { submissions: [] };  // Ensure the default data structure
-            await db.write();
-        }
-    } catch (error) {
-        console.error("Error initializing DB:", error);
-    }
-}
-
-initDB();
-
-// === Google API Key logic ===
-const googleApiKey = process.env.GOOGLE_API_KEY;
-console.log("Your Google API Key is:", googleApiKey);
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// === Middleware ===
+// Path to our JSON store
+const dbPath = path.join(__dirname, 'db.json');
+
+// Load submissions from disk (or initialize)
+let submissions = [];
+try {
+  const raw = fs.readFileSync(dbPath, 'utf-8');
+  submissions = JSON.parse(raw).submissions || [];
+  console.log(`Loaded ${submissions.length} submissions from disk.`);
+} catch (e) {
+  console.log('No valid db.json found, starting with empty submissions.');
+  submissions = [];
+  // Write initial file
+  fs.writeFileSync(dbPath, JSON.stringify({ submissions }, null, 2));
+}
+
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// === Submission route ===
-function isSameDay(date1, date2) {
-    return (
-        date1.getFullYear() === date2.getFullYear() &&
-        date1.getMonth() === date2.getMonth() &&
-        date1.getDate() === date2.getDate()
-    );
+// Helpers
+function isSameDay(d1, d2) {
+  return d1.getFullYear() === d2.getFullYear() &&
+         d1.getMonth()    === d2.getMonth() &&
+         d1.getDate()     === d2.getDate();
 }
 
-app.post('/submit', async (req, res) => {
-    const { email, link } = req.body;
+// Routes
+app.post('/submit', (req, res) => {
+  const { email, link } = req.body;
+  if (!email || !link) {
+    return res.status(400).json({ success: false, message: 'Missing email or link' });
+  }
 
-    if (!email || !link) {
-        return res.status(400).send({ success: false, message: 'Missing email or link' });
-    }
+  const now = new Date();
+  const last = submissions.find(s => s.email === email && isSameDay(new Date(s.date), now));
+  if (last) {
+    return res.status(429).json({ success: false, message: 'Already submitted today' });
+  }
 
-    await db.read(); // Refresh DB
-    const now = new Date();
-    const lastSubmission = db.data.submissions.find(
-        (entry) => entry.email === email && isSameDay(new Date(entry.date), now)
-    );
+  const entry = { email, link, date: now.toISOString() };
+  submissions.push(entry);
 
-    if (lastSubmission) {
-        return res.status(429).send({ success: false, message: 'Already submitted today' });
-    }
-
-    db.data.submissions.push({ email, link, date: now.toISOString() });
-    await db.write();
-
-    console.log(`✔ Submission received from ${email}: ${link}`);
-    res.send({ success: true, message: 'Submission received successfully!' });
+  // Persist to disk
+  try {
+    fs.writeFileSync(dbPath, JSON.stringify({ submissions }, null, 2));
+    console.log('✔ Submission saved:', entry);
+    res.json({ success: true, message: 'Submission received successfully!' });
+  } catch (err) {
+    console.error('Error saving submission:', err);
+    res.status(500).json({ success: false, message: 'Server error, try again later.' });
+  }
 });
 
-// === Static homepage ===
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public','index.html'));
 });
 
-// === Start server ===
 app.listen(PORT, () => {
-    console.log(`✅ Server is running on port ${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
