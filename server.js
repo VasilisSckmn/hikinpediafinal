@@ -15,7 +15,7 @@ const adapter = new JSONFile(dbPath);
 // Ensure that db.json exists and has default data
 if (!fs.existsSync(dbPath)) {
     console.log("Creating db.json with default data...");
-    fs.writeFileSync(dbPath, JSON.stringify({ submissions: [] }, null, 2));
+    fs.writeFileSync(dbPath, JSON.stringify({ submissions: [] }, null, 2));  // Default data
 }
 
 // Initialize the lowdb database
@@ -25,11 +25,11 @@ const db = new Low(adapter);
 async function initDB() {
     try {
         await db.read();
-        
+
         // If the db is empty or data is missing, we will set the default
         if (!db.data || !db.data.submissions) {
             console.log("Initializing default data in db.json...");
-            db.data = { submissions: [] };
+            db.data = { submissions: [] };  // Ensure the default data structure
             await db.write();
         }
     } catch (error) {
