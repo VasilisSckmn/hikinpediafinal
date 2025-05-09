@@ -1752,7 +1752,7 @@ async function search2() {
         link.href = "ΠυραμιδαΒελατουριΑττικη.html";
     } else if (rowData[1] === "Πύρλιας - Αχαΐα") {
         link.href = "ΠυρλιαςΑχαια.html";
-    } else if (rowData[1] === "Όρος - Αίγινα") {
+    } else if (rowData[1] === "Ελλάνιο - Αίγινα") {
         link.href = "ΟροςΑιγινα.html";
     } else if (rowData[1] === "Φυλλήϊον - Λάρισα, Τρίκαλα") {
         link.href = "ΦυλληιονΛαρισαΤρικαλα.html";
