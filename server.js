@@ -14,10 +14,13 @@ const db = new Low(adapter);
 // Initialize DB
 async function initDB() {
     await db.read();
-    db.data ||= { submissions: [] };
-    await db.write();
+    // Check if the database is empty and initialize it with default data
+    if (!db.data) {
+        db.data = { submissions: [] }; // ✅ provide default structure
+        await db.write();
+    }
 }
-initDB();
+initDB(); // Ensure DB is initialized correctly before the app starts
 
 // === Google API Key logic ===
 const googleApiKey = process.env.GOOGLE_API_KEY;
@@ -28,8 +31,8 @@ const PORT = process.env.PORT || 3000;
 
 // === Middleware ===
 app.use(cors()); // ✅ NEW: Allow requests from other domains
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json()); // Middleware to parse JSON body
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
 
 // === Submission route ===
 function isSameDay(date1, date2) {
@@ -43,28 +46,31 @@ function isSameDay(date1, date2) {
 app.post('/submit', async (req, res) => {
     const { email, link } = req.body;
 
+    // Check if email and link are provided
     if (!email || !link) {
         return res.status(400).send({ success: false, message: 'Missing email or link' });
     }
 
-    await db.read(); // Refresh DB
+    await db.read(); // Refresh DB to ensure we're working with the latest data
     const now = new Date();
     const lastSubmission = db.data.submissions.find(
         (entry) => entry.email === email && isSameDay(new Date(entry.date), now)
     );
 
+    // If the user already submitted today, return an error
     if (lastSubmission) {
         return res.status(429).send({ success: false, message: 'Already submitted today' });
     }
 
+    // Store the new submission
     db.data.submissions.push({ email, link, date: now.toISOString() });
-    await db.write();
+    await db.write(); // Save the updated data
 
     console.log(`✔ Submission received from ${email}: ${link}`);
     res.send({ success: true, message: 'Submission received successfully!' });
 });
 
-// === Static homepage ===
+// === Static homepage route ===
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
