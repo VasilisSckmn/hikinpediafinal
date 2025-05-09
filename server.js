@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // ✅ NEW: CORS support
+const cors = require('cors');
 const fs = require('fs');
 
 // === Lowdb setup ===
@@ -12,10 +12,12 @@ const { JSONFile } = require('lowdb/node');
 const dbPath = path.join(__dirname, 'db.json'); // Absolute path for file
 const adapter = new JSONFile(dbPath);
 
-// Ensure that db.json exists and has default data
+// Check if db.json exists and create with default data if missing
 if (!fs.existsSync(dbPath)) {
-    console.log("Creating db.json with default data...");
+    console.log("db.json file does not exist. Creating db.json with default data...");
     fs.writeFileSync(dbPath, JSON.stringify({ submissions: [] }, null, 2));  // Default data
+} else {
+    console.log("db.json file exists.");
 }
 
 // Initialize the lowdb database
@@ -25,7 +27,10 @@ const db = new Low(adapter);
 async function initDB() {
     try {
         await db.read();
-
+        
+        // Log current database state
+        console.log("Database read:", db.data);
+        
         // If the db is empty or data is missing, we will set the default
         if (!db.data || !db.data.submissions) {
             console.log("Initializing default data in db.json...");
@@ -47,7 +52,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // === Middleware ===
-app.use(cors()); // ✅ NEW: Allow requests from other domains
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
