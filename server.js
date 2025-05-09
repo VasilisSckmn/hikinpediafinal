@@ -4,26 +4,23 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const fs = require('fs');
+const Database = require('better-sqlite3');
+
+// === Initialize SQLite DB ===
+const db = new Database('submissions.db');
+
+// Ensure table exists
+db.exec(`
+  CREATE TABLE IF NOT EXISTS submissions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL,
+    link TEXT NOT NULL,
+    date TEXT NOT NULL
+  )
+`);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// Path to our JSON store
-const dbPath = path.join(__dirname, 'db.json');
-
-// Load submissions from disk (or initialize)
-let submissions = [];
-try {
-  const raw = fs.readFileSync(dbPath, 'utf-8');
-  submissions = JSON.parse(raw).submissions || [];
-  console.log(`Loaded ${submissions.length} submissions from disk.`);
-} catch (e) {
-  console.log('No valid db.json found, starting with empty submissions.');
-  submissions = [];
-  // Write initial file
-  fs.writeFileSync(dbPath, JSON.stringify({ submissions }, null, 2));
-}
 
 // Middleware
 app.use(cors());
@@ -45,27 +42,26 @@ app.post('/submit', (req, res) => {
   }
 
   const now = new Date();
-  const last = submissions.find(s => s.email === email && isSameDay(new Date(s.date), now));
-  if (last) {
+  const dateStr = now.toISOString();
+
+  // Check if user submitted today
+  const stmt = db.prepare('SELECT * FROM submissions WHERE email = ? ORDER BY date DESC LIMIT 1');
+  const last = stmt.get(email);
+
+  if (last && isSameDay(new Date(last.date), now)) {
     return res.status(429).json({ success: false, message: 'Already submitted today' });
   }
 
-  const entry = { email, link, date: now.toISOString() };
-  submissions.push(entry);
+  // Insert submission
+  const insert = db.prepare('INSERT INTO submissions (email, link, date) VALUES (?, ?, ?)');
+  insert.run(email, link, dateStr);
 
-  // Persist to disk
-  try {
-    fs.writeFileSync(dbPath, JSON.stringify({ submissions }, null, 2));
-    console.log('✔ Submission saved:', entry);
-    res.json({ success: true, message: 'Submission received successfully!' });
-  } catch (err) {
-    console.error('Error saving submission:', err);
-    res.status(500).json({ success: false, message: 'Server error, try again later.' });
-  }
+  console.log('✔ Submission saved:', { email, link, date: dateStr });
+  res.json({ success: true, message: 'Submission received successfully!' });
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public','index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
