@@ -4679,3 +4679,15 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
   
+
+
+  (function() {
+  const meta = document.createElement('meta');
+  meta.name = "description";
+  meta.content = `HikinPedia Greece: Ανακαλύψτε βουνά και φαράγγια της Ελλάδας, διαβάστε εμπειρίες πεζοπόρων και σχεδιάστε τη δική σας περιπέτεια στη φύση.
+Η πιο ολοκληρωμένη λίστα για βουνά και φαράγγια στην Ελλάδα!
+Διαβάστε εξορμήσεις, θαυμάστε την ομορφιά της φύσης και
+βρείτε οδηγίες για τη δική σας πεζοπορία!`;
+  
+  document.head.appendChild(meta);
+})();
